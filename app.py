@@ -84,6 +84,11 @@ class LoginForm(FlaskForm):
 def index():
     return render_template('index.html')
 
+@app.route('/index_redirect')
+def index_redirect():
+    return render_template('index_redirect.html')
+
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -162,7 +167,7 @@ def login():
         # log user in
         login_user(user)
         flash('You are now logged in!')
-        return redirect(url_for('index'))
+        return redirect(url_for('index_redirect'))
     return render_template('login.html', form=form)
 
 
